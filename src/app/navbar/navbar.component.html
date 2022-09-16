@@ -1,0 +1,15 @@
+<div class="navbar">
+
+    <div style="width: 100%; flex-direction: row; display: flex; justify-content: center; margin-top: 10px;" >
+        <nav>
+            <a [routerLink]="['/bienvenido']">HOME</a>
+            <a [routerLink]="['/juegos']">GAMES</a>
+            <a *ngIf="loggedin" [routerLink]="['/quiensoy']">QUIEN SOY</a>
+            <a *ngIf="loggedin">CHATROOM</a>
+            <a *ngIf="!loggedin" [routerLink]="['/login']">LOG IN</a>
+            <a *ngIf="loggedin" (click)="logout()">LOG OUT</a>
+            <div id="indicator"></div>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
+</div>

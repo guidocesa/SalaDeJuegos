@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sala-de-juegos-ec286": {
+      "hosting": {
+        "sala-de-juegos": [
+          "sala-de-juegos-ec286"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sala-de-juegos-ec286"
+  }
+}
