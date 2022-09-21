@@ -6,6 +6,7 @@ import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { ResgisterComponent } from './resgister/resgister.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { JuegosComponent } from './juegos/juegos.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: "full"},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'bienvenido', component: BienvenidoComponent},
   { path: 'register', component: ResgisterComponent},
   { path: 'quiensoy', component: QuienSoyComponent},
+  { path: 'chatroom', component: ChatroomComponent},
   { path: '**', component: ErrorComponent}
 ];
 

@@ -22,6 +22,7 @@ import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { JuegosComponent } from './juegos/juegos.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { JuegosComponent } from './juegos/juegos.component';
     QuienSoyComponent,
     NavbarComponent,
     RegisterComponent,
-    JuegosComponent
+    JuegosComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
