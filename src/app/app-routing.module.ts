@@ -9,13 +9,15 @@ import { JuegosComponent } from './juegos/juegos.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
 import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
+import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: "full"},
   { path: 'juegos', component: JuegosComponent, children:
   [
     {path:'ahorcado', component: AhorcadoComponent},
-    {path:'mayormenor', component: MayormenorComponent}
+    {path:'mayormenor', component: MayormenorComponent},
+    {path:'preguntados', component: PreguntadosComponent}
   ]},
   { path: 'login', component: LoginComponent}, 
   { path: 'bienvenido', component: BienvenidoComponent},
