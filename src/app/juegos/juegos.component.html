@@ -1,1 +1,44 @@
-<p>juegos works!</p>
+<div class="page">
+
+  
+    <div id="wrapper">
+      <section>
+        <ul id="gallery">
+          <li>
+            <a [routerLink]="['/juegos/ahorcado']">
+              <img src="../../assets/Ahorcado.png" alt="">
+              <p>Ahorcado</p>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/juegos/mayormenor']">
+              <img src="../../assets/MayorMenor.png" alt="">
+              <p>Mayor Menor</p>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/juegos/preguntados']">
+              <img src="../../assets/preguntados.jpg"  alt="">
+              <p>Preguntados</p>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/juegos/clicker']">
+              <img src="" alt="">
+              <p>Clicker</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="" alt="">
+              <p>Juego 5</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+    
+    
+    <router-outlet></router-outlet>
+    
+  </div>

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+
+
+
 
 @Component({
   selector: 'app-chatroom',
@@ -6,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
+  
 
-  constructor() { }
+
+  constructor() {};
 
   ngOnInit(): void {
   }

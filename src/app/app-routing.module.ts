@@ -7,10 +7,16 @@ import { ResgisterComponent } from './resgister/resgister.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { JuegosComponent } from './juegos/juegos.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
+import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: "full"},
-  { path: 'juegos', component: JuegosComponent},
+  { path: 'juegos', component: JuegosComponent, children:
+  [
+    {path:'ahorcado', component: AhorcadoComponent},
+    {path:'mayormenor', component: MayormenorComponent}
+  ]},
   { path: 'login', component: LoginComponent}, 
   { path: 'bienvenido', component: BienvenidoComponent},
   { path: 'register', component: ResgisterComponent},

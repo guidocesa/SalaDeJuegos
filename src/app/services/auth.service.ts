@@ -5,6 +5,8 @@ import {
 	createUserWithEmailAndPassword,
 	signOut
 } from '@angular/fire/auth';
+import { first } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
 	providedIn: 'root'
@@ -33,5 +35,18 @@ export class AuthService {
 
 	logout() {
 		return signOut(this.auth);
+	}
+
+	getUser()
+	{
+		var user = localStorage.getItem('user')?.toString();
+
+		if(user)
+		{
+			var parsedUser: User = JSON.parse(user);
+
+			return parsedUser;
+		}
+
 	}
 }
