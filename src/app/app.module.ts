@@ -25,6 +25,8 @@ import { JuegosComponent } from './juegos/juegos.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
 import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
+import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
     JuegosComponent,
     ChatroomComponent,
     AhorcadoComponent,
-    MayormenorComponent
+    MayormenorComponent,
+    PreguntadosComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

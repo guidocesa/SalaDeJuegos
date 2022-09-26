@@ -47,6 +47,10 @@ export class AuthService {
 
 			return parsedUser;
 		}
+		else
+		{
+			return null;
+		}
 
 	}
 }
