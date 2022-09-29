@@ -43,6 +43,8 @@ export class PreguntadosComponent implements OnInit {
     misBanderas:any[]|undefined;
     misPaises:Observable<any>|undefined;
     bandera:string = "";
+    contadorCorrectas:number = 0;
+    contadorIncorrectas:number = 0;
 
   cargarPregunta()
   {
@@ -78,12 +80,22 @@ export class PreguntadosComponent implements OnInit {
         }
 
         console.log(this.bandera);
-
-        
       }
-
-
     )
+  }
+
+  preguntaRespondida(respuesta:number)
+  {
+    if(this.correcto == respuesta)
+    {
+      this.contadorCorrectas ++;
+    }
+    else
+    {
+      this.contadorIncorrectas ++;
+    }
+    this.cargarPregunta();
+
   }
 
   

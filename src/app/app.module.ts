@@ -20,7 +20,6 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RegisterComponent } from './register/register.component';
 import { JuegosComponent } from './juegos/juegos.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
@@ -37,7 +36,6 @@ import { HttpClientModule } from '@angular/common/http'
     ResgisterComponent,
     QuienSoyComponent,
     NavbarComponent,
-    RegisterComponent,
     JuegosComponent,
     ChatroomComponent,
     AhorcadoComponent,

@@ -1,1 +1,4 @@
-<p>chatroom works!</p>
+<input #mensaje>
+<button (click)="enviarMensaje(mensaje.value)">Enviar</button>
+<button (click)="obtenerMensajes()">Obtener</button>
+

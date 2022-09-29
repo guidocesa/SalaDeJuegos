@@ -1,8 +1,15 @@
 
-<h2>Cual de las siguientes es la bandera de {{bandera}}</h2>
 <div class="banderas">
-    <img [src]="opcion1.img" >
-    <img [src]="opcion2.img" >
-    <img [src]="opcion3.img" >
-    <img [src]="opcion4.img" >
+    <h2>Cual de las siguientes es la bandera de {{bandera}}?</h2>
+   <div class="columna1">
+
+       <img [src]="opcion1.img" (click)="preguntaRespondida(0)">
+       <img [src]="opcion2.img" (click)="preguntaRespondida(1)">
+    </div>
+    <div class="columna2">
+
+        <img [src]="opcion3.img" (click)="preguntaRespondida(2)">
+        <img [src]="opcion4.img" (click)="preguntaRespondida(3)">
+    </div>
+        <h2>Aciertos: {{contadorCorrectas}} Errores: {{contadorIncorrectas}}</h2>
 </div>
