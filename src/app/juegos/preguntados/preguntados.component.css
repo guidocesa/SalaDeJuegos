@@ -3,5 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: azure;
 
+}
+
+.img{
+    margin: 20px;
 }

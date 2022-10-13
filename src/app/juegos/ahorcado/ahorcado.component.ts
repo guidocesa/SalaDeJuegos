@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-ahorcado',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AhorcadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -109,13 +110,24 @@ hang() {
 hanged() { //lost
   this.gameInProcess = false;
   alert("Fallaste! La respuesta correcta era: " + this.answer);
-  this.losses++;
+  this.wins = 0;
   this.unhideAll(".losses");
   var display = "";
   for (var i of this.answer)
     display += i + " ";
   display.slice(0, -1);
   document.querySelector("#guessing")!.textContent = display;
+
+  var puntajesAhorcado = this.afs.collection('puntajesAhorcado');
+
+  var nuevoPuntaje = {
+    nombre: localStorage.getItem('user'),
+    fecha: Date.now(),
+    puntaje: this.wins
+  }
+
+  puntajesAhorcado.add(nuevoPuntaje);
+
 }
 
 escaped() { //won

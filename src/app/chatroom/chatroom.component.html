@@ -1,4 +1,18 @@
-<input #mensaje>
-<button (click)="enviarMensaje(mensaje.value)">Enviar</button>
-<button (click)="obtenerMensajes()">Obtener</button>
+<div class='container' ng-cloak ng-app="chatApp">
+    <h1>Chatroom</h1>
+    <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+        <div class="chatbox__messages" *ngFor="let message of this.mensajes">
+            <div class="chatbox__messages__user-message">
+                <div class="chatbox__messages__user-message--ind-message">
+                    <p class="name">{{message.user}} at {{message.time}}</p>
+                    <br/>
+                    <p class="message">{{message.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form>
+        <input class='chatbox' style="height: 40px; color: azure;" type="text" #mensaje placeholder="Enter your message" (keyup.enter)="enviarMensaje(mensaje.value); mensaje.value = '';" >
+    </form>
+</div>
 

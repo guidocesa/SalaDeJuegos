@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { CountriesAPIService } from 'src/app/services/countries-api.service';
 
@@ -9,7 +10,7 @@ import { CountriesAPIService } from 'src/app/services/countries-api.service';
 })
 export class PreguntadosComponent implements OnInit {
 
-  constructor(private countries:CountriesAPIService) { }
+  constructor(private countries:CountriesAPIService, private afs: AngularFirestore) { }
 
   ngOnInit(): void {
     this.countries.todos().subscribe(
@@ -72,10 +73,10 @@ export class PreguntadosComponent implements OnInit {
             this.bandera = this.opcion2.nombre;
             break;
           case 2:
-            this.bandera = this.opcion2.nombre;
+            this.bandera = this.opcion3.nombre;
             break;
           case 3:
-            this.bandera = this.opcion2.nombre;
+            this.bandera = this.opcion4.nombre;
             break;
         }
 
@@ -92,7 +93,17 @@ export class PreguntadosComponent implements OnInit {
     }
     else
     {
-      this.contadorIncorrectas ++;
+      var puntajesPreguntados = this.afs.collection('puntajesPreguntados');
+
+      var nuevoPuntaje = {
+        nombre: localStorage.getItem('user'),
+        fecha: Date.now(),
+        puntaje: this.contadorCorrectas
+      }
+    
+      puntajesPreguntados.add(nuevoPuntaje);
+
+      this.contadorCorrectas = 0;
     }
     this.cargarPregunta();
 

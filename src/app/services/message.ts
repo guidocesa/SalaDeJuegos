@@ -1,6 +1,6 @@
 export interface Message{
     id:string;
     text:string;
-    time:string;
-    user:string;
+    time:any;
+    user:any;
 }

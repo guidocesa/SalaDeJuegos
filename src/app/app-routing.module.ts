@@ -10,6 +10,9 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
 import { MayormenorComponent } from './juegos/mayormenor/mayormenor.component';
 import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
+import { ClickerComponent } from './juegos/clicker/clicker.component';
+import { EncuestaComponent } from './encuesta/encuesta.component';
+import { PermisoLoggedService } from './services/permiso-logged.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: "full"},
@@ -17,13 +20,15 @@ const routes: Routes = [
   [
     {path:'ahorcado', component: AhorcadoComponent},
     {path:'mayormenor', component: MayormenorComponent},
-    {path:'preguntados', component: PreguntadosComponent}
-  ]},
+    {path:'preguntados', component: PreguntadosComponent},
+    {path: 'clicker', component: ClickerComponent}
+  ],canActivate: [PermisoLoggedService]},
   { path: 'login', component: LoginComponent}, 
   { path: 'bienvenido', component: BienvenidoComponent},
   { path: 'register', component: ResgisterComponent},
-  { path: 'quiensoy', component: QuienSoyComponent},
-  { path: 'chatroom', component: ChatroomComponent},
+  { path: 'quiensoy', component: QuienSoyComponent, canActivate: [PermisoLoggedService]},
+  { path: 'chatroom', component: ChatroomComponent, canActivate: [PermisoLoggedService]},
+  { path: 'encuesta', component: EncuestaComponent, canActivate: [PermisoLoggedService]},
   { path: '**', component: ErrorComponent}
 ];
 

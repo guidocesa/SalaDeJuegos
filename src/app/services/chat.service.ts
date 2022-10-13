@@ -16,7 +16,7 @@ export class ChatService {
   private messages: Observable<Message[]>;
 
   constructor(private afs:AngularFirestore){
-    this.messagesCollection = afs.collection<Message>('messages');
+    this.messagesCollection = afs.collection<Message>('messages', t => t.orderBy('time') );
     this.messages = this.messagesCollection.valueChanges();
   }
 

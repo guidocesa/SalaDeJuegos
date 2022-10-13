@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     })
     if(user)
     {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user.user?.email));
       await this.router.navigateByUrl("/quiensoy");
       refresh();
     }

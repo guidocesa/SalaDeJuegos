@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { PROVIDED_FIRESTORE_INSTANCES } from '@angular/fire/firestore/firestore.module';
 
 @Component({
   selector: 'app-mayormenor',
@@ -18,7 +20,7 @@ export class MayormenorComponent implements OnInit {
   
 
 
-  constructor() { 
+  constructor(private afs: AngularFirestore) { 
 
     
   }
@@ -47,7 +49,7 @@ export class MayormenorComponent implements OnInit {
     }
     else
     {
-      this.aciertos = 0;
+      this.perdio();
     }
     this.numeroAnterior = cartaAzar%13;
     this.right = (225 * (cartaAzar % 13));
@@ -63,11 +65,26 @@ export class MayormenorComponent implements OnInit {
     }
     else
     {
-      this.aciertos = 0;
+      this.perdio();
     }
     this.right = (225 * (cartaAzar % 13));
     this.numeroAnterior = cartaAzar%13;
     this.bottom = ( Math.trunc(cartaAzar / 13) * 315);
+  }
+
+  perdio()
+  {
+    var puntajesMayorMenor = this.afs.collection('puntajesMayorMenor');
+
+    var nuevoPuntaje = {
+      nombre: localStorage.getItem('user'),
+      fecha: Date.now(),
+      puntaje: this.aciertos
+    }
+  
+    puntajesMayorMenor.add(nuevoPuntaje);
+
+    this.aciertos = 0;
   }
 
   cartaRandom()

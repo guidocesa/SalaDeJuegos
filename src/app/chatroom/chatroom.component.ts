@@ -7,18 +7,22 @@ import { ChatService } from '../services/chat.service';
 
 
 
+
 @Component({
   selector: 'app-chatroom',
   templateUrl: './chatroom.component.html',
-  styleUrls: ['./chatroom.component.css']
+  styleUrls: ['./chatroom.component.scss']
 })
 export class ChatroomComponent implements OnInit {
+
+  mensajes:Message[] | undefined;
   
 
 
   constructor(private cs : ChatService) {};
 
   ngOnInit(): void {
+    this.obtenerMensajes();
   }
 
   enviarMensaje(texto:string)
@@ -33,12 +37,11 @@ export class ChatroomComponent implements OnInit {
 
     };
 
-    
     mensaje.text = texto;
     var user = localStorage.getItem('user');
     if(user != null)
     {
-      mensaje.user = user;
+      mensaje.user = user.split("@")[0].replace('"', '');
     }
 
     this.cs.sendMessage(mensaje);
@@ -47,16 +50,14 @@ export class ChatroomComponent implements OnInit {
     
   }
   
-  obtenerMensajes()
+  async obtenerMensajes()
   {
-    const mensajes = this.cs.getMessages();
+    const mensajes = await this.cs.getMessages();
     mensajes.forEach( t => {
-      t.forEach( q =>{
-        console.log(q.text);
-      }
-
-      )
+      this.mensajes = t;
+      t.forEach( m => {
+        m.time = new Date(Number.parseInt(m.time)).toLocaleString();
+      })
     })
   }
-  
 }

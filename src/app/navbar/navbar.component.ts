@@ -12,10 +12,10 @@ export class NavbarComponent implements OnInit {
   user:any = null;
 
 
-  constructor() { }
+  constructor(private r:Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('user') != null || localStorage.getItem('user')!.length > 4 )
+    if(localStorage.getItem('user') != null )
     {
       this.loggedin = true;
     }
@@ -29,6 +29,7 @@ export class NavbarComponent implements OnInit {
   {
     localStorage.removeItem("user");
     window.location.reload();
+    this.r.navigateByUrl("/login")
   }
 
 }
